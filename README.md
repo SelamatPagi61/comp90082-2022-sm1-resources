@@ -1,12 +1,55 @@
-# COMP90082 Public Repo/Resources
+# COMP90051 Project 2
+Jiehuang Shi
+Hongyi Gu
+Yuxin Zhao
 
-This public repository is designed to help students in COMP90082 subject.
+## Overview
+The task discussed in the report is to solve an authorship attribution problem by predicting prolific authors for each academic paper given a set of training and test data.  
 
+## Requirements
+* [Tensorflow](version >= 2.4.1)
+* [tensorflow_addons](version >= 0.15.0)
+* [scikit-learn]
+* [scikit-skmultilearn]
+* [gensim]
 
-## [Sprints' Checklists](https://github.com/COMP90082SM12022/comp90082-2022-sm1-resources/tree/main/checklists)
+## Data Preparation
+test.json and test.json files are provided. It just needs to be in the same root as the py script.
 
-## [Project-based Notes](https://cis-projects.github.io/project_based_course_notes/chapter_0/introduction.html)
+project 2
+  |--train.json
+  |--test.json
+```
 
-## [COMP90082 FAQ](https://wiggly-turnip-06b.notion.site/a8713810d04744a38979f6c25b850393?v=18b952eb75764c828cefd37187a78664)
+## Getting Started (Training & Testing)
 
-## [Additional Resources](https://github.com/COMP90082SM12022/comp90082-2022-sm1-resources/tree/main/additional_resources)
+### Training with BinaryRelevance:
+```
+python project2.py --model BinaryRelevance --epochs 50 --batch_size 32 --lr 0.001
+```
+### Training with ClassifierChain:
+```
+python project2.py --model ClassifierChain --epochs 50 --batch_size 32 --lr 0.001
+```
+### Training with LabelPowerset:
+```
+python project2.py --model LabelPowerset --epochs 50 --batch_size 32 --lr 0.001
+```
+### Training with MLP:
+- MLP Testing
+```
+python project2.py --model mlp --test
+```
+###- Training with LSTM:
+- LSTM Testing:
+```
+python project2.py --model lstm --test
+```
+- LSTM training with full dataset and Testing
+```
+python project2.py --model lstm --full_data --test
+```
+- LSTM Testing and plot
+```
+python project2.py --model lstm --test_saved_csv_name result.csv --test --plot_acc_loss 
+```
